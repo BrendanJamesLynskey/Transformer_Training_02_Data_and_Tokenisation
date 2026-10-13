@@ -503,7 +503,7 @@
 <section class="slide" id="slide-01">
     <div class="slide-number">01</div>
     <h2>The Corpus and the Held-Out Split</h2>
-    <p>Part 2 trains on Lewis Carroll&rsquo;s <em>Alice&rsquo;s Adventures in Wonderland</em> (1865, <a href="https://www.gutenberg.org/ebooks/11">Project Gutenberg eBook #11</a>, public domain), reduced to Part 1&rsquo;s 64-character alphabet: lower case, straight quotes, no italics marks.</p>
+    <p>The Training site trains on Lewis Carroll&rsquo;s <em>Alice&rsquo;s Adventures in Wonderland</em> (1865, <a href="https://www.gutenberg.org/ebooks/11">Project Gutenberg eBook #11</a>, public domain), reduced to the Decoder&rsquo;s 64-character alphabet: lower case, straight quotes, no italics marks.</p>
     <div class="diagram-flow">
         <div class="diagram-box accent">training: first 127,837 characters</div>
         <div class="diagram-box">validation: last 14,204 (10%)</div>
@@ -546,7 +546,7 @@
 <section class="slide" id="slide-03">
     <div class="slide-number">03</div>
     <h2>Why Tokens Rather Than Characters</h2>
-    <p>Part 1&rsquo;s model reads characters, so it must spend its context and its layers assembling &ldquo;the&rdquo; from three pieces every time. Most real models read <strong>tokens</strong>: frequent fragments learnt from the text itself.</p>
+    <p>The Decoder&rsquo;s model reads characters, so it must spend its context and its layers assembling &ldquo;the&rdquo; from three pieces every time. Most real models read <strong>tokens</strong>: frequent fragments learnt from the text itself.</p>
     <div class="diagram-grid cols-2">
         <div class="diagram-panel accent-border">
             <h4>Byte-pair encoding</h4>
@@ -557,7 +557,7 @@
             <p>GPT-2 runs the same algorithm over bytes rather than characters, so any text can be encoded, with a vocabulary of 50,257 (<a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">Radford et al. 2019</a>).</p>
         </div>
     </div>
-    <p>The site keeps training on characters, so that the model being trained is exactly Part 1&rsquo;s; the tokeniser is there to show how real models see text. With tokens, the same 8-position context covers more text, and a per-token loss is a larger number for the same skill (so perplexities compare only under one tokeniser).</p>
+    <p>The site keeps training on characters, so that the model being trained is exactly the Decoder&rsquo;s; the tokeniser is there to show how real models see text. With tokens, the same 8-position context covers more text, and a per-token loss is a larger number for the same skill (so perplexities compare only under one tokeniser).</p>
 </section>
 
 <section class="slide" id="slide-04">
@@ -693,7 +693,7 @@
 </section>
 
 <footer class="footer">
-    <p>Part of the <a href="https://github.com/BrendanJamesLynskey/LLM_Hub_Transformer_Training">Transformer Training series</a> &middot; live, animated companion: <a href="https://transformer-training-explained.vercel.app/training/02-data-and-tokens">chapter 2, Data and tokenisation</a> of <a href="https://transformer-training-explained.vercel.app/training">Transformer Decoder Explained, Part 2</a></p>
+    <p>Part of the <a href="https://github.com/BrendanJamesLynskey/LLM_Hub_Transformer_Training">Transformer Training series</a> &middot; live, animated companion: <a href="https://transformer-training-explained.vercel.app/training/02-data-and-tokens">chapter 2, Data and tokenisation</a> of the <a href="https://transformer-training-explained.vercel.app/training">Training</a> site</p>
     <p style="margin-top: 0.5rem; font-size: 0.8rem;"><a href="https://brendanjameslynskey.github.io/Transformer_Training_01_Training_Loop_and_Objective/">&larr; 01 Training Loop</a> &nbsp;&middot;&nbsp; <a href="https://brendanjameslynskey.github.io/LLM_Hub_Transformer_Training/">Series index</a> &nbsp;&middot;&nbsp; <a href="https://brendanjameslynskey.github.io/Transformer_Training_03_Backpropagation/">03 Backprop &rarr;</a></p>
     <p style="margin-top: 0.5rem; font-size: 0.75rem;">Measured numbers: <a href="https://github.com/BrendanJamesLynskey/transformer-explainer/blob/main/results.md">results.md</a> (transformer-explainer @15b1c9f). Code on these slides is cut from that repository.</p>
 </footer>
